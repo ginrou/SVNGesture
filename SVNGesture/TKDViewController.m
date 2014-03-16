@@ -9,6 +9,8 @@
 #import "TKDViewController.h"
 #import "TKDGestureRecorder.h"
 
+#import "TKDPushClient.h"
+
 @interface TKDViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *frameCountLabel;
@@ -28,6 +30,12 @@
     self.isRecording = NO;
     [self updateUIElements];
     [self updateCounter];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    TKDPushClient *pushClient = [[TKDPushClient alloc] init];
+    [pushClient sentPushToMySelf];
 }
 
 - (void)didReceiveMemoryWarning
