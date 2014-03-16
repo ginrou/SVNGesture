@@ -58,7 +58,7 @@
     [self.motionManager stopAccelerometerUpdates];
     NSString *recordString = [self.currentRecord finalize];
     NSInteger timestamp = [self.currentRecord.startDate timeIntervalSince1970];
-    NSString *filename = [NSString stringWithFormat:@"%d.txt", timestamp];
+    NSString *filename = [NSString stringWithFormat:@"%ld.txt", (long)timestamp];
     self.currentRecord = nil;
 
     [self writeRecord:recordString toFile:filename];
@@ -108,7 +108,7 @@
 }
 
 - (void)addRecord:(CMAcceleration)acceleration {
-    NSString *line = [NSString stringWithFormat:@"%d, %f, %f, %f", self.lines.count, acceleration.x, acceleration.y, acceleration.z];
+    NSString *line = [NSString stringWithFormat:@"%lu, %f, %f, %f", (unsigned long)self.lines.count, acceleration.x, acceleration.y, acceleration.z];
     [self.lines addObject:line];
 }
 

@@ -9,7 +9,6 @@
 #import "TKDViewController.h"
 #import "TKDGestureRecorder.h"
 
-#import "TKDPushClient.h"
 
 @interface TKDViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -34,8 +33,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    TKDPushClient *pushClient = [[TKDPushClient alloc] init];
-    [pushClient sentPushToMySelf];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +44,6 @@
 - (void)updateUIElements
 {
     self.statusLabel.text = self.recorder.stateTitle;
-    self.frameCountLabel.text = [NSString stringWithFormat:@"%d", self.recorder.recordedCount];
 
     if (self.isRecording) {
         [self.button setTitle:@"stop" forState:UIControlStateNormal];
@@ -58,7 +54,6 @@
 }
 
 - (void)updateCounter {
-    self.frameCountLabel.text = [NSString stringWithFormat:@"%d", self.recorder.recordedCount];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/30.0 * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self updateCounter];
