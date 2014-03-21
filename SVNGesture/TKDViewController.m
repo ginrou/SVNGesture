@@ -9,6 +9,7 @@
 #import "TKDViewController.h"
 #import "TKDGestureRecorder.h"
 
+#import "TKDLibSVMWrapper.h"
 
 @interface TKDViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -29,6 +30,28 @@
     self.isRecording = NO;
     [self updateUIElements];
     [self updateCounter];
+
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"svm" ofType:@"model"];
+    TKDLibSVMWrapper *wrapper = [[TKDLibSVMWrapper alloc] initWithFile:filepath];
+
+    NSString *dataFile = [[NSBundle mainBundle] pathForResource:@"hadouken" ofType:@"txt"];
+    NSString *dataStr = [NSString stringWithContentsOfFile:dataFile encoding:NSUTF8StringEncoding error:nil];
+
+    NSMutableArray *vals = [NSMutableArray array];
+
+    for (NSString *s in [dataStr componentsSeparatedByString:@" "]) {
+
+        NSArray *indexAndValue = [s componentsSeparatedByString:@":"];
+        if (indexAndValue.count == 2) {
+            [vals addObject:indexAndValue[1]];
+        }
+
+    }
+
+    BOOL isHadouken = [wrapper predict:vals];
+
+    NSLog(@"isHadouken = %d", isHadouken);
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {

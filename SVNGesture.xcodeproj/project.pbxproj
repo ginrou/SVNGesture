@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543944E718D5FCA700CDEA5A /* svm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 543944E618D5FCA700CDEA5A /* svm.cpp */; };
+		543944EA18DBD6D600CDEA5A /* TKDLibSVMWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 543944E918DBD6D600CDEA5A /* TKDLibSVMWrapper.m */; };
 		547B9BF918C30296009CA048 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547B9BF818C30296009CA048 /* Foundation.framework */; };
 		547B9BFB18C30296009CA048 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547B9BFA18C30296009CA048 /* CoreGraphics.framework */; };
 		547B9BFD18C30296009CA048 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547B9BFC18C30296009CA048 /* UIKit.framework */; };
@@ -23,6 +25,9 @@
 		547B9C2418C30296009CA048 /* SVNGestureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 547B9C2318C30296009CA048 /* SVNGestureTests.m */; };
 		547B9C2F18C30496009CA048 /* TKDGestureRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 547B9C2E18C30496009CA048 /* TKDGestureRecorder.m */; };
 		547B9C3018C30496009CA048 /* TKDGestureRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 547B9C2E18C30496009CA048 /* TKDGestureRecorder.m */; };
+		54CD96D218DC2A8400BF8BDB /* svm.model in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D118DC2A8400BF8BDB /* svm.model */; };
+		54CD96D418DC313400BF8BDB /* hadouken.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D318DC313400BF8BDB /* hadouken.txt */; };
+		54CD96D618DC342F00BF8BDB /* notHadouken.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D518DC342F00BF8BDB /* notHadouken.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		543944E018D5F9AD00CDEA5A /* svm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = svm.h; sourceTree = "<group>"; };
+		543944E618D5FCA700CDEA5A /* svm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = svm.cpp; sourceTree = "<group>"; };
+		543944E818DBD6D600CDEA5A /* TKDLibSVMWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDLibSVMWrapper.h; sourceTree = "<group>"; };
+		543944E918DBD6D600CDEA5A /* TKDLibSVMWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDLibSVMWrapper.m; sourceTree = "<group>"; };
 		547B9BF518C30296009CA048 /* SVNGesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVNGesture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		547B9BF818C30296009CA048 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		547B9BFA18C30296009CA048 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1365,6 +1374,9 @@
 		547BA15C18CA2F93009CA048 /* CA.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = CA.sh; sourceTree = "<group>"; };
 		547BA15D18CA2F93009CA048 /* tsget */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = tsget; sourceTree = "<group>"; };
 		547BA15E18CA2F93009CA048 /* openssl.cnf */ = {isa = PBXFileReference; lastKnownFileType = text; path = openssl.cnf; sourceTree = "<group>"; };
+		54CD96D118DC2A8400BF8BDB /* svm.model */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = svm.model; sourceTree = "<group>"; };
+		54CD96D318DC313400BF8BDB /* hadouken.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hadouken.txt; sourceTree = "<group>"; };
+		54CD96D518DC342F00BF8BDB /* notHadouken.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notHadouken.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1391,6 +1403,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		543944DC18D5F97900CDEA5A /* libsvm */ = {
+			isa = PBXGroup;
+			children = (
+				543944E618D5FCA700CDEA5A /* svm.cpp */,
+				543944E018D5F9AD00CDEA5A /* svm.h */,
+			);
+			name = libsvm;
+			sourceTree = "<group>";
+		};
 		547B9BEC18C30296009CA048 = {
 			isa = PBXGroup;
 			children = (
@@ -1430,9 +1451,14 @@
 				547B9C0A18C30296009CA048 /* Main.storyboard */,
 				547B9C0D18C30296009CA048 /* TKDViewController.h */,
 				547B9C0E18C30296009CA048 /* TKDViewController.m */,
+				54CD96D318DC313400BF8BDB /* hadouken.txt */,
+				54CD96D518DC342F00BF8BDB /* notHadouken.txt */,
 				547B9C2D18C30496009CA048 /* TKDGestureRecorder.h */,
 				547B9C2E18C30496009CA048 /* TKDGestureRecorder.m */,
+				543944E818DBD6D600CDEA5A /* TKDLibSVMWrapper.h */,
+				543944E918DBD6D600CDEA5A /* TKDLibSVMWrapper.m */,
 				547B9C1018C30296009CA048 /* Images.xcassets */,
+				543944DC18D5F97900CDEA5A /* libsvm */,
 				547B9BFF18C30296009CA048 /* Supporting Files */,
 			);
 			path = SVNGesture;
@@ -1442,6 +1468,7 @@
 			isa = PBXGroup;
 			children = (
 				547B9C0018C30296009CA048 /* SVNGesture-Info.plist */,
+				54CD96D118DC2A8400BF8BDB /* svm.model */,
 				547B9C0118C30296009CA048 /* InfoPlist.strings */,
 				547B9C0418C30296009CA048 /* main.m */,
 				547B9C0618C30296009CA048 /* SVNGesture-Prefix.pch */,
@@ -2943,6 +2970,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Yuichi Takeda";
 				TargetAttributes = {
+					547B9BF418C30296009CA048 = {
+						DevelopmentTeam = Z8LCMHLY67;
+					};
 					547B9C1518C30296009CA048 = {
 						TestTargetID = 547B9BF418C30296009CA048;
 					};
@@ -2972,8 +3002,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54CD96D418DC313400BF8BDB /* hadouken.txt in Resources */,
 				547B9C1118C30296009CA048 /* Images.xcassets in Resources */,
 				547B9C0318C30296009CA048 /* InfoPlist.strings in Resources */,
+				54CD96D618DC342F00BF8BDB /* notHadouken.txt in Resources */,
+				54CD96D218DC2A8400BF8BDB /* svm.model in Resources */,
 				547B9C0C18C30296009CA048 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2993,8 +3026,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543944EA18DBD6D600CDEA5A /* TKDLibSVMWrapper.m in Sources */,
 				547B9C0918C30296009CA048 /* TKDAppDelegate.m in Sources */,
 				547B9C0518C30296009CA048 /* main.m in Sources */,
+				543944E718D5FCA700CDEA5A /* svm.cpp in Sources */,
 				547B9C0F18C30296009CA048 /* TKDViewController.m in Sources */,
 				547B9C2F18C30496009CA048 /* TKDGestureRecorder.m in Sources */,
 			);
@@ -3134,6 +3169,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SVNGesture/SVNGesture-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -3148,7 +3185,7 @@
 					/Users/yuichi_takeda/Development/iphone/SVNGesture/SVNGesture,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96E6D9F6-8DE7-47CB-A329-66D890CCCC43";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3158,6 +3195,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SVNGesture/SVNGesture-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -3172,7 +3211,7 @@
 					/Users/yuichi_takeda/Development/iphone/SVNGesture/SVNGesture,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96E6D9F6-8DE7-47CB-A329-66D890CCCC43";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
