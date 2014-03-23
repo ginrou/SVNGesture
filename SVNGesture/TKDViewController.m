@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 Yuichi Takeda. All rights reserved.
 //
 
+@import AudioToolbox;
+@import AVFoundation;
+
 #import "TKDViewController.h"
 #import "TKDGestureRecorder.h"
 
@@ -18,6 +21,8 @@
 
 @property (strong, nonatomic) TKDGestureRecorder *recorder;
 @property (assign, nonatomic) BOOL isRecording;
+
+@property AVAudioPlayer *player;
 
 @end
 
@@ -98,6 +103,15 @@
 }
 - (IBAction)removeRecordButtonTapped:(id)sender {
     [self.recorder removeAllRecords];
+}
+
+- (IBAction)hadoukenButtonTapped:(id)sender {
+//    NSURL *hadoukenSoundURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"波動" ofType:@"wav"]];
+//    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:hadoukenSoundURL error:nil];
+//    [self.player play];
+
+    [self.recorder startRecognizing];
+
 }
 
 @end

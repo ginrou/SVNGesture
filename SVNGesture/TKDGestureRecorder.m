@@ -6,13 +6,19 @@
 //  Copyright (c) 2014年 Yuichi Takeda. All rights reserved.
 //
 
+@import AVFoundation;
+
 #import "TKDGestureRecorder.h"
+#import "TKDLibSVMWrapper.h"
 
 @interface TKDGestureRecorder ()
 @property (strong, nonatomic) CMMotionManager *motionManager;
 @property (strong, nonatomic) NSOperationQueue *motionManagerQueue;
 
 @property (strong, nonatomic) TKDGestureRecord *currentRecord;
+@property (strong, nonatomic) TKDLibSVMWrapper *svmWrapper;
+@property (strong, nonatomic) NSMutableArray *array;
+@property (strong, nonatomic) AVAudioPlayer *player;
 @end
 
 @implementation TKDGestureRecorder
@@ -91,6 +97,57 @@
 
 }
 
+- (void)startRecognizing {
+
+    NSString *modelFile = [[NSBundle mainBundle] pathForResource:@"svm" ofType:@"model"];
+    self.svmWrapper = [[TKDLibSVMWrapper alloc] initWithFile:modelFile];
+    self.array = [NSMutableArray array];
+
+    [self.motionManager startAccelerometerUpdatesToQueue:self.motionManagerQueue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+
+        [self appendData:accelerometerData.acceleration];
+
+    }];
+
+}
+
+- (void)appendData:(CMAcceleration)acceleration {
+
+    [self.array addObject:@(acceleration.x)];
+    [self.array addObject:@(acceleration.y)];
+    [self.array addObject:@(acceleration.z)];
+
+    if (self.array.count > 27) {
+
+        [self.array removeObjectAtIndex:0];
+        [self.array removeObjectAtIndex:0];
+        [self.array removeObjectAtIndex:0];
+
+    }
+
+    if (self.array.count == 27) {
+
+        BOOL isHadouken = [self.svmWrapper predict:self.array];
+        if (isHadouken) {
+            [self foundHadouken];
+        }
+
+    }
+
+}
+
+- (void)foundHadouken {
+
+    NSLog(@"yes this is hadouken!!!");
+
+    NSURL *hadoukenSoundURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"波動" ofType:@"wav"]];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:hadoukenSoundURL error:nil];
+    [self.player play];
+
+
+}
+
+
 @end
 
 
@@ -110,6 +167,7 @@
 - (void)addRecord:(CMAcceleration)acceleration {
     NSString *line = [NSString stringWithFormat:@"%lu, %f, %f, %f", (unsigned long)self.lines.count, acceleration.x, acceleration.y, acceleration.z];
     [self.lines addObject:line];
+    NSLog(@"%@" , line);
 }
 
 - (NSString *)finalize {

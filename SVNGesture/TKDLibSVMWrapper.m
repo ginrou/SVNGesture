@@ -41,7 +41,6 @@
         NSNumber *num = vector[i];
         node[i].value = [num doubleValue];
         node[i].index = i+1;
-        NSLog(@"%lf", node[i].value);
     }
 
     node[size].index = -1;
@@ -51,6 +50,25 @@
     free(node);
 
     NSLog(@"predicted = %lf", v);
+
+    return v > 0;
+}
+
+- (BOOL)isHadouken:(NSArray *)vector {
+
+    int size = (int)vector.count;
+    struct svm_node *node = malloc(sizeof(struct svm_node) * (size+1));
+    for (int i = 0 ; i < size; ++i) {
+        NSNumber *num = vector[i];
+        node[i].value = [num doubleValue];
+        node[i].index = i+1;
+    }
+
+    node[size].index = -1;
+
+    double v = svm_predict(_model, node);
+
+    free(node);
 
     return v > 0;
 }

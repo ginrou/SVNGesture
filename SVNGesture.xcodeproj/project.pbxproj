@@ -28,6 +28,7 @@
 		54CD96D218DC2A8400BF8BDB /* svm.model in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D118DC2A8400BF8BDB /* svm.model */; };
 		54CD96D418DC313400BF8BDB /* hadouken.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D318DC313400BF8BDB /* hadouken.txt */; };
 		54CD96D618DC342F00BF8BDB /* notHadouken.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D518DC342F00BF8BDB /* notHadouken.txt */; };
+		54CD96D818DCAE8300BF8BDB /* 波動.wav in Resources */ = {isa = PBXBuildFile; fileRef = 54CD96D718DCAE8300BF8BDB /* 波動.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1377,6 +1378,7 @@
 		54CD96D118DC2A8400BF8BDB /* svm.model */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = svm.model; sourceTree = "<group>"; };
 		54CD96D318DC313400BF8BDB /* hadouken.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hadouken.txt; sourceTree = "<group>"; };
 		54CD96D518DC342F00BF8BDB /* notHadouken.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notHadouken.txt; sourceTree = "<group>"; };
+		54CD96D718DCAE8300BF8BDB /* 波動.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "波動.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1451,6 +1453,7 @@
 				547B9C0A18C30296009CA048 /* Main.storyboard */,
 				547B9C0D18C30296009CA048 /* TKDViewController.h */,
 				547B9C0E18C30296009CA048 /* TKDViewController.m */,
+				54CD96D718DCAE8300BF8BDB /* 波動.wav */,
 				54CD96D318DC313400BF8BDB /* hadouken.txt */,
 				54CD96D518DC342F00BF8BDB /* notHadouken.txt */,
 				547B9C2D18C30496009CA048 /* TKDGestureRecorder.h */,
@@ -3007,6 +3010,7 @@
 				547B9C0318C30296009CA048 /* InfoPlist.strings in Resources */,
 				54CD96D618DC342F00BF8BDB /* notHadouken.txt in Resources */,
 				54CD96D218DC2A8400BF8BDB /* svm.model in Resources */,
+				54CD96D818DCAE8300BF8BDB /* 波動.wav in Resources */,
 				547B9C0C18C30296009CA048 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

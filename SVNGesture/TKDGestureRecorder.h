@@ -19,6 +19,8 @@
 - (void)stop;
 - (void)removeAllRecords;
 
+- (void)startRecognizing;
+
 @end
 
 @interface TKDGestureRecord : NSObject
